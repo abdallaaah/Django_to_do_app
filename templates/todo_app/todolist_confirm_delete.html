@@ -1,0 +1,12 @@
+{%extends "base.html"%}
+{%block content%}
+<form method = "POST">
+{%csrf_token%}
+<div class='container'>
+<br><br><p>Are you sure Want to delete  <span style="color:crimson">{{list.title}}{{item}}</span> </p>
+<input type="submit" value="delete"/>
+{% comment %} <a href="{%url "list" list.id %}">Go Back</a> {% endcomment %}
+
+</form>
+{%endblock%}
+</div>

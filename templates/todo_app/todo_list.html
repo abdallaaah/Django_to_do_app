@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{%block content%}
+<div class="container mt-5">
+    <div class="d-flex justify-content-center row">
+        <div class="col-md-6">
+            <div class="p-4 bg-white notes">
+                <div class="d-flex flex-row align-items-center notes-title">
+                    <h4>{{todo_list}} tasks</h4><span class="px-2 review-text ml-2 rounded">Beta</span>
+                </div>
+               
+            <div class="p-3 bg-white">
+                {%for todo in object_list%}
+                <div class="d-flex align-items-center"><label><input type="checkbox" class="option-input radio"><strong class="label-text">{{todo.title}}</strong></label> <span style="color:red">end at</span><span class="label-text">{{todo.due_date.date}}</span><div style=text-align: right;><a href="{%url "update-item" todo.id%}">Edit</a><a href="{%url "delete-item" todo_list.pk todo.id%}">Delete</a></div>
+                </div>
+                
+                {%endfor%}
+                
+
+            </div>
+           
+            
+    </div>
+</div>
+<br><div class="container text-center">
+    <a class="btn btn-primary " style="text-align:center" href="{%url "create-item" todo_list.pk  %}" role="button">Add New Task</a>
+    </div>
+
+
+{%endblock%}
+
+

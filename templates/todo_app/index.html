@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<!--index.html-->
+{% if object_list %}
+<br><h3>All to do Lists</h3>
+{% endif %}
+<ul>
+    {% for todolist in object_list %}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center row">
+            <div class="col-md-6">
+                <div class="p-4 bg-white notes">
+                    <div class="d-flex flex-row align-items-center notes-title" type="button"
+                    onclick="location.href='{% url "list" todolist.id %}'">
+                        <h4 style="color:red;">{{todolist.title }}</h4> 
+                        <div class="container mt-2"> 
+                        <h3>{{todolist.items.count}} items to do</h3>
+                          
+                        </div> 
+                        <div>
+                        <a href="{%url 'update-list' todolist.pk %}">Edit</a>
+                        <a href="{%url 'delete-list' todolist.pk %}">Delete</a>
+                        </div>
+                    </div>
+                    
+
+                   
+                {% comment %} <div class="p-3 bg-white">
+                    {%for todo in object_list%}
+                    <div class="d-flex align-items-center"><label><input type="checkbox" class="option-input radio"><span class="label-text">{{todolist.title}}</span></label></div>
+                    {%endfor%}
+                </div> {% endcomment %}
+               
+                
+        </div>
+    </div>
+    {% empty %}
+    <h4>You have no lists!</h4>
+    {% endfor %}
+</ul>
+<br><br><div class="container text-center">
+<a class="btn btn-primary " style="text-align:center" href="{%url "create"%}" role="button">Add New List</a>
+</div>
+<br>
+{% endblock %}
+
+{% comment %} ana wa2ef eny afhm dah bokra inshalla  {% endcomment %}

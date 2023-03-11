@@ -1,0 +1,54 @@
+<!-- todo_list/todo_app/templates/base.html -->
+<!-- Base template -->
+<!doctype html>
+<html lang="en">
+{{request.user}}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+   <link rel="stylesheet" href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css'>
+   <link  rel="stylesheet" href='https://use.fontawesome.com/releases/v5.7.2/css/all.css'>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <br><title style="text-align:center" >Django To-do Listss</title>
+</head>
+
+<body>
+
+    <div>
+        <h1 onclick="location.href='{% url "index" %}'" type=button>
+            Django To-do Lists <span class="px-2 review-text ml-1 rounded">Beta</span>
+        </h1> 
+    </div>
+    
+    <div>
+        {% block content %}
+        This content will be replaced by different html code for each page.
+        {% endblock %}
+    </div>
+    <style>
+        body{background-color: lightblue}.notes{border-top-left-radius: 42px}.dot{height: 6px;width: 6px;margin-left: 8px;margin-right: 3px;margin-top: 2px;background-color: rgb(91, 92, 91);border-radius: 50%;display: inline-block}.review-text{background: red;color: #fff}.info{color: #8c8b9a}.dot-red{background-color: red !important;height: 6px;width: 6px;margin-left: 8px;margin-right: 3px;margin-top: 2px;border-radius: 50%;display: inline-block}.overview{color: red}@keyframes click-wave{0%{height: 40px;width: 40px;opacity: 0.15;position: relative}100%{height: 200px;width: 200px;margin-left: -80px;margin-top: -80px;opacity: 0}}.option-input{-webkit-appearance: none;-moz-appearance: none;-ms-appearance: none;-o-appearance: none;appearance: none;position: relative;top: 10.3px;right: 0;bottom: 0;left: 0;height: 30px;width: 30px;transition: all 0.15s ease-out 0s;background: #cbd1d8;border: none;color: #fff;cursor: pointer;display: inline-block;margin-right: 0.5rem;outline: none;position: relative;z-index: 1000}.option-input:hover{background: #9faab7}.option-input:checked{background: red}.option-input:checked::before{height: 30px;width: 30px;position: absolute;content: "\f111";font-family: "Font Awesome 5 Free";display: inline-block;font-size: 16.7px;text-align: center;line-height: 30px}.option-input:checked::after{-webkit-animation: click-wave 0.25s;-moz-animation: click-wave 0.25s;animation: click-wave 0.25s;background: red;content: '';display: block;position: relative;z-index: 100}.option-input.radio{border-radius: 50%}.option-input.radio::after{border-radius: 50%}.completed{color: gray;text-decoration: line-through}.line-text{width: 100%;text-align: center;border-bottom: 1px solid #eee;line-height: 0.1em;margin: 10px 0 20px}.line-text span{background: #fff;padding: 0 10px;color: #212529}.user-images img{margin-left: -5px}
+    </style>
+    <script>
+        
+            $(document).ready(function() {
+                $('input[type=checkbox]').change(function() {
+                 
+                  if (this.checked) {
+                    $(this).next(".label-text").css("text-decoration-line", "line-through");
+                  } else {
+                     $(this).next(".label-text").css("text-decoration-line", "none");
+                  }
+              
+                });
+              });
+        
+    </script>
+    
+</body>
+
+
+</html>
