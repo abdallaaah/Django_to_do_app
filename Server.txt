@@ -1,0 +1,3 @@
+- /home/abdallaeltawil/Django_to_do_app
+- setting in : /home/abdallaeltawil/Django_to_do_app/todo_project
+- /home/abdallaeltawil/.virtualenvs/to_do_app-virtualenv
